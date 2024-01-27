@@ -1,0 +1,51 @@
+Q.1 WRITE A PROGRAM TO FIND A FACTORIAL OF A NUMBER WITH RECURSION.
+
+ANS.=>
+#include <iostream>
+using namespace std;
+
+long factorial( int n) {
+  if (n == 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+int main() {
+  int n;
+  cin >> n;
+
+  long result = factorial(n);
+  cout <<"The Result is : "<< result << endl;
+
+  return 0;
+}
+-----------------------------------------------------------------------
+Q.2=> WRITE A PROGRAM TO FIND A CUBE OF A NUMBER WITH RECURSION. (IN C++)
+#include <iostream>
+
+// Function to calculate the cube of a number
+int cube(int n) {
+  if (n == 0) {
+    return 0;
+  } else {
+    return n * cube(n - 1);
+  }
+}
+
+int main() {
+  int number;
+
+  // Get the number from the user
+  std::cout << "Enter a number: ";
+  std::cin >> number;
+
+  // Calculate and display the cube of the number
+  int cubeOfNumber = cube(number);
+  std::cout << "The cube of " << number << " is: " << cubeOfNumber << std::endl;
+
+  return 0;
+}
+
+
