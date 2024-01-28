@@ -1,0 +1,178 @@
+Q.1=> Write a program to create a 2D matrix and initialize it with integer values
+ANS.=>
+#include <iostream>
+
+int main() {
+  int rows = 3;
+  int columns = 4;
+
+  int matrix[rows][columns];
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < columns; ++j) {
+      matrix[i][j] = i * columns + j + 1; 
+    }
+  }
+
+  // Print the matrix
+  for (int i = 0; i < rows; ++i) {
+    for (int j = 0; j < columns; ++j) {
+      std::cout << matrix[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  return 0;
+}
+========================================================================================
+Q.2=> Transpose a matrix (swap rows with columns).
+ANS.=>
+#include <iostream>
+#include <vector>
+
+void transposeMatrix(std::vector<std::vector<int>>& matrix) {
+  // Loop through the matrix and swap elements based on their indices
+  for (int i = 0; i < matrix.size(); ++i) {
+    for (int j = i + 1; j < matrix[0].size(); ++j) {
+      std::swap(matrix[i][j], matrix[j][i]);
+    }
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  // Transpose the matrix
+  transposeMatrix(matrix);
+
+  // Print the transposed matrix
+  std::cout << "Transposed Matrix:" << std::endl;
+  for (const auto& row : matrix) {
+    for (int element : row) {
+      std::cout << element << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  return 0;
+}
+=====================================================================
+Q.3=> Print the diagonal elements of a square matrix.
+ANS.=> (TRAVERSING BY INDEX)
+#include <iostream>
+#include <vector>
+
+void printDiagonalElements(const std::vector<std::vector<int>>& matrix) {
+  int size = matrix.size();
+
+  // Loop through the diagonal elements
+  for (int i = 0; i < size; ++i) {
+    std::cout << matrix[i][i] << " "; // Access diagonal element
+  }
+
+  std::cout << std::endl;
+}
+
+int main() {
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  printDiagonalElements(matrix);
+
+  return 0;
+}
+============================================================================
+Q.4=> Check if a given square matrix is an identity matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+
+bool isIdentityMatrix(const std::vector<std::vector<int>>& matrix) {
+  int size = matrix.size();
+
+  // Check for square matrix
+  if (size != matrix[0].size()) {
+    return false;
+  }
+
+  // Check diagonal elements
+  for (int i = 0; i < size; ++i) {
+    if (matrix[i][i] != 1) {
+      return false;
+    }
+  }
+
+  // Check non-diagonal elements
+  for (int i = 0; i < size; ++i) {
+    for (int j = 0; j < size; ++j) {
+      if (i != j && matrix[i][j] != 0) {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+int main() {
+  std::vector<std::vector<int>> matrix = {
+    {1, 0, 0},
+    {0, 1, 0},
+    {0, 0, 1},
+  };
+
+  if (isIdentityMatrix(matrix)) {
+    std::cout << "The matrix is an identity matrix." << std::endl;
+  } else {
+    std::cout << "The matrix is not an identity matrix." << std::endl;
+  }
+
+  return 0;
+}
+===================================================================
+Q.5=> Find the sum of elements in a specific row of a matrix.
+ANS.=> (USING A LOOP)
+#include <iostream>
+#include <vector>
+
+int getRowSum(const std::vector<std::vector<int>>& matrix, int row_index) {
+  int sum = 0;
+
+  // Check if the row index is valid
+  if (row_index < 0 || row_index >= matrix.size()) {
+    return -1;
+  }
+
+  // Loop through the elements of the specified row
+  for (int element : matrix[row_index]) {
+    sum += element;
+  }
+
+  return sum;
+}
+
+int main() {
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  int row_index = 1;
+
+  int row_sum = getRowSum(matrix, row_index);
+  if (row_sum != -1) {
+    std::cout << "Sum of elements in row " << row_index << ": " << row_sum << std::endl;
+  } else {
+    std::cout << "Invalid row index." << std::endl;
+  }
+
+  return 0;
+}
