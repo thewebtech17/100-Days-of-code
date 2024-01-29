@@ -1,0 +1,72 @@
+Q.7=>
+Find and print the largest element in each row of a matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+
+void findMaxInRows(const std::vector<std::vector<int>>& matrix) {
+  // Loop through each row of the matrix
+  for (const auto& row : matrix) {
+    // Find the largest element in the current row
+    int max_element = *std::max_element(row.begin(), row.end());
+
+    // Print the largest element
+    std::cout << "Largest element in row: " << max_element << std::endl;
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 5, 2},
+    {4, 9, 6},
+    {7, 3, 8},
+  };
+
+  // Find and print the largest element in each row
+  findMaxInRows(matrix);
+
+  return 0;
+}
+================================================================================
+Q.8=>
+Determine and print the smallest element in each column of a matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+
+void findMinInColumns(const std::vector<std::vector<int>>& matrix) {
+  // Get the number of rows and columns
+  int rows = matrix.size();
+  int columns = matrix[0].size();
+
+  // Loop through each column
+  for (int col = 0; col < columns; ++col) {
+    // Initialize the minimum element with the first element in the column
+    int min_element = matrix[0][col];
+
+    // Find the smallest element in the current column
+    for (int row = 1; row < rows; ++row) {
+      if (matrix[row][col] < min_element) {
+        min_element = matrix[row][col];
+      }
+    }
+
+    // Print the smallest element in the current column
+    std::cout << "Smallest element in column " << col << ": " << min_element << std::endl;
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  // Find and print the smallest element in each column
+  findMinInColumns(matrix);
+
+  return 0;
+}
