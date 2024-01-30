@@ -1,0 +1,156 @@
+Q.9=>
+Implement a function to search for a specific element in a matrix.
+ANS.=> (USING NESTED LOOP)
+#include <iostream>
+#include <vector>
+
+bool searchMatrix(const std::vector<std::vector<int>>& matrix, int target) {
+  for (int i = 0; i < matrix.size(); ++i) {
+    for (int j = 0; j < matrix[i].size(); ++j) {
+      if (matrix[i][j] == target) {
+        return true; // Found the target element
+      }
+    }
+  }
+  return false; // Target element not found
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  // Target element to search for
+  int target = 5;
+
+  if (searchMatrix(matrix, target)) {
+    std::cout << "Target element found." << std::endl;
+  } else {
+    std::cout << "Target element not found." << std::endl;
+  }
+
+  return 0;
+}
+=====================================================================
+Q.10=>Replace all negative values in a matrix with zero.
+ANS.=> (USING NESTED LOOP)
+#include <iostream>
+#include <vector>
+
+void replaceNegativesWithZero(std::vector<std::vector<int>>& matrix) {
+  for (int i = 0; i < matrix.size(); ++i) {
+    for (int j = 0; j < matrix[i].size(); ++j) {
+      if (matrix[i][j] < 0) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {-4, 5, -6},
+    {7, -8, 9},
+  };
+
+  // Replace negative values with zero
+  replaceNegativesWithZero(matrix);
+
+  // Print the modified matrix
+  std::cout << "Matrix after replacing negatives with zero:" << std::endl;
+  for (const auto& row : matrix) {
+    for (int element : row) {
+      std::cout << element << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  return 0;
+}
+============================================================================================
+Q.11=> Determine the minimum element in each row of a matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+void findMinInRows(const std::vector<std::vector<int>>& matrix) {
+  // Loop through each row of the matrix
+  for (const auto& row : matrix) {
+    // Use std::min_element to find the minimum element
+    auto min_element = std::min_element(row.begin(), row.end());
+
+    // Check if min_element is valid
+    if (min_element != row.end()) {
+      // Print the minimum element
+      std::cout << "Minimum element in row: " << *min_element << std::endl;
+    } else {
+      // Empty row
+      std::cout << "Row is empty." << std::endl;
+    }
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {},
+  };
+
+  // Find and print the minimum element in each row
+  findMinInRows(matrix);
+
+  return 0;
+}
+====================================================================================
+Q.12=>
+Calculate the sum of elements in the upper triangle of a square matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+
+int sumUpperTriangle(const std::vector<std::vector<int>>& matrix) {
+  int sum = 0;
+  int size = matrix.size();
+
+  // Check if the matrix is square
+  if (size != matrix[0].size()) {
+    return -1;
+  }
+
+  // Iterate through the upper triangle elements
+  for (int i = 0; i < size; ++i) {
+    for (int j = i + 1; j < size; ++j) {
+      sum += matrix[i][j];
+    }
+  }
+
+  return sum;
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  // Calculate the sum of the upper triangle elements
+  int upper_triangle_sum = sumUpperTriangle(matrix);
+
+  if (upper_triangle_sum != -1) {
+    std::cout << "Sum of upper triangle: " << upper_triangle_sum << std::endl;
+  } else {
+    std::cout << "Invalid matrix - not square." << std::endl;
+  }
+
+  return 0;
+}
