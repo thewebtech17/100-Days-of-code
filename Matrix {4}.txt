@@ -1,0 +1,126 @@
+Q.13=>
+Find the average of elements in the lower triangle of a square matrix.
+ANS.=>
+#include <iostream>
+#include <vector>
+
+double averageLowerTriangle(const std::vector<std::vector<int>>& matrix) {
+  int sum = 0;
+  int count = 0;
+  int size = matrix.size();
+
+  // Check if the matrix is square
+  if (size != matrix[0].size()) {
+    return -1;
+  }
+
+  // Iterate through the lower triangle elements
+  for (int i = 0; i < size; ++i) {
+    for (int j = 0; j <= i; ++j) {
+      sum += matrix[i][j];
+      ++count;
+    }
+  }
+
+  // Calculate the average
+  if (count > 0) {
+    return static_cast<double>(sum) / count;
+  } else {
+    return -1; // Empty matrix
+  }
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  // Calculate the average of the lower triangle elements
+  double lower_triangle_avg = averageLowerTriangle(matrix);
+
+  if (lower_triangle_avg != -1) {
+    std::cout << "Average of lower triangle: " << lower_triangle_avg << std::endl;
+  } else {
+    std::cout << "Invalid matrix - not square or empty." << std::endl;
+  }
+
+  return 0;
+}
+===================================================================================
+Q.14=>
+Check if a matrix has any duplicate elements.
+ANS.=>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+bool hasDuplicates(const std::vector<std::vector<int>>& matrix) {
+  // Create a hash table to store elements
+  std::unordered_map<int, int> element_counts;
+
+  // Traverse the matrix and check for duplicates
+  for (const auto& row : matrix) {
+    for (int element : row) {
+      if (element_counts.count(element) > 0) {
+        return true; // Duplicate found
+      }
+      element_counts[element]++; // Increment count for element
+    }
+  }
+
+  return false; // No duplicates found
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9},
+  };
+
+  if (hasDuplicates(matrix)) {
+    std::cout << "Matrix contains duplicate elements." << std::endl;
+  } else {
+    std::cout << "Matrix does not contain duplicate elements." << std::endl;
+  }
+
+  return 0;
+}
+================================================================================
+Q.15=>
+Count the number of negative numbers in a matrix.
+ANS=> (USING NESTED LOOP)
+#include <iostream>
+#include <vector>
+
+int countNegatives(const std::vector<std::vector<int>>& matrix) {
+  int count = 0;
+  for (const auto& row : matrix) {
+    for (int element : row) {
+      if (element < 0) {
+        ++count;
+      }
+    }
+  }
+  return count;
+}
+
+int main() {
+  // Define the matrix
+  std::vector<std::vector<int>> matrix = {
+    {1, 2, 3},
+    {-4, 5, -6},
+    {7, -8, 9},
+  };
+
+  // Count the number of negative numbers
+  int negative_count = countNegatives(matrix);
+
+  std::cout << "Number of negative numbers: " << negative_count << std::endl;
+
+  return 0;
+}
