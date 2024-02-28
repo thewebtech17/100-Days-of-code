@@ -1,0 +1,133 @@
+(A)NULL POINTER:-
+
+#include<iostream>
+using namespace std;
+int main(){
+int *ptr=0;
+cout<<ptr<<endl;
+}
+
+OUTPUT:-0
+----------------------------------------------
+(B)DOUBLE POINTER :-
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a=9;
+    int *ty =&a;
+    int **ty2=&ty;
+    cout<<&ty<<endl<<&ty2<<endl<<&a;
+
+    return 0;
+}
+
+OUTPUT: 0x7fffd34b74f8
+        0x7fffd34b7500
+        0x7fffd34b74f4
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                                   -: 'MCQ'S' :-
+ 
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int first =8;
+    int second =18;
+    int *ptr=&second;
+    *ptr=9;
+    cout<<"first :"<<first<<endl<<"second :"<<second;;
+
+    return 0;
+}
+
+OUTPUT:- FIRST:8
+         SECOND:9
+------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int first =6;
+    int *ptr=&first;
+    int *ptr2=ptr;
+    (*ptr)++;
+    cout<<first<<endl;
+
+    return 0;
+}
+
+OUTPUT:- FIRST:7
+-------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int first =8;
+    int second =11;
+    int *ptr=&second;
+    first=*ptr;
+    *ptr=*ptr + 2;
+    cout<<first<<endl<<second<<endl;
+
+    return 0;
+}
+
+OUTPUT:- FIRST:11
+         SECOND:13
+---------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float f=12.5;
+    float p=21.5;
+    float *ptr= &f;
+    (*ptr)++;
+    *ptr=p;
+    cout<<*ptr<<endl<<p<<endl<<f<<endl;
+
+    return 0;
+}
+
+OUTPUT:- *PTR=21.5 
+         P=21.5
+         F=21.5
+-------------------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+void update(int *p){
+    *p = (*p) * 2;
+}
+
+
+int main()
+{
+    int i=10;
+    update(&i);
+    cout<<i<<endl;
+
+    return 0;
+}
+
+OUTPUT:-  I=20 {10*2=20}
+--------------------------------------------------------------------
+
+
+
