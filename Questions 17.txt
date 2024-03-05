@@ -1,0 +1,165 @@
+Problem 1: Find the Index Given an array of integers, write a function to find the index of a specific element in the array 
+using linear search. If the element is not found, return -1.
+
+ANS.=>
+
+#include <iostream>
+
+using namespace std;
+
+int linearSearch(int arr[], int n, int target) {
+  for (int i = 0; i < n; i++) {
+    if (arr[i] == target) {
+      return i; 
+    }
+  }
+  return -1; 
+}
+
+int main() {
+  int arr[] = {10, 20, 30, 40, 50};
+  int n = sizeof(arr) / sizeof(arr[0]);
+  int target = 20; 
+
+  int index = linearSearch(arr, n, target);
+
+  if (index != -1) {
+    cout << "Element found at index: " << index << endl;
+  } else {
+    cout << "Element not found in the array" << endl;
+  }
+
+  return 0;
+}
+
+
+-----------------------------------------------------------------------------------------------------
+
+Problem-2: Count Occurrences Write a function that counts the number of occurrences of a specific element in an array 
+using linear search.
+
+ANS.=>
+#include <iostream>
+
+using namespace std;
+
+int countOccurrences(int arr[], int n, int x) {
+  int count = 0;
+  for (int i = 0; i < n; i++) {
+    if (arr[i] == x) {
+      count++;
+    }
+  }
+  return count;
+}
+
+int main() {
+  int arr[] = {1, 2, 3, 4, 5, 2, 1, 3};
+  int n = sizeof(arr) / sizeof(arr[0]);
+  int x = 2;
+
+  int occurrences = countOccurrences(arr, n, x);
+  cout << "The number of occurrences of " << x << " in the array is: " << occurrences << endl;
+  return 0;
+}
+
+---------------------------------------------------------------------------------------------------------
+Problem 3: Maximum Element Find the maximum element in an array using linear search. Return both the maximum 
+element and its index.
+
+ANS=>
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int arr[] = {1, 4, 2, 8, 5};
+  int n = sizeof(arr) / sizeof(arr[0]);
+  int max_val = arr[0];
+  int max_idx = 0;
+  for (int i = 1; i < n; i++) {
+    if (arr[i] > max_val) {
+      max_val = arr[i];
+      max_idx = i;
+    }
+  }
+  cout << "Maximum element: " << max_val << endl;
+  cout << "Index of maximum element: " << max_idx << endl;
+  return 0;
+}
+
+---------------------------------------------------------------------------------------------
+Problem-4: Minimum Element Find the minimum element in an array using linear search. Return both the minimum 
+element and its index.
+
+ANS.=>
+
+#include <iostream>
+
+using namespace std;
+
+int findMinimum(int arr[], int n) {
+    int minIndex = 1;
+    int minValue = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < minValue) {
+            minValue = arr[i];
+            minIndex = i;
+        }
+    }
+
+    return minIndex;
+}
+
+int main() {
+    int arr[] = {5, 2, 4, 1, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int minIndex = findMinimum(arr, n);
+    int minValue = arr[minIndex];
+
+    cout << "Minimum element: " << minValue << endl;
+    cout << "Minimum element index: " << minIndex << endl;
+
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------------
+Problem 18: Consonant or Vowel Check Create a program that uses linear search to check if a character in a string is a vowel 
+or a consonant.
+
+ANS.=>
+
+#include <iostream>
+
+using namespace std;
+
+bool isVowel(char ch) {
+  char vowels[] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+
+  for (int i = 0; i < 10; i++) {
+    if (ch == vowels[i]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+int main() {
+  char ch;
+
+  cout << "Enter a character: ";
+  cin >> ch;
+
+  if (isVowel(ch)) {
+    cout << ch << " is a vowel." << endl;
+  } else {
+    cout << ch << " is a consonant." << endl;
+  }
+
+  return 0;
+}
+
+--------------------------------------------------------------------------------------------------

@@ -1,0 +1,274 @@
+Q.1=> FACTORIAL :-
+
+ #include<iostream>
+using namespace std;
+
+int fact(int n){
+    if(n==0){
+        return 1;
+        
+    }else{
+        return n*fact(n-1);
+    }
+}
+
+
+int main(){
+    int n;
+    cout<<"Enter the number of factorial :"<<endl;
+    cin>>n;
+    int answer = fact(n);
+    cout<<answer<<endl;
+    return 0;
+}
+---------------------------------------------------------------------------------------
+Q.2=> 2'S POWER :-
+
+#include<iostream>
+using namespace std;
+int two(int n){
+    if(n==0){
+        return 1;
+    }else{
+        return 2*two(n-1);
+    }
+}
+int main(){
+    int n;
+    cout<<"Enter the power of 2"<<endl;
+    cin>>n;
+    int power=two(n);
+    cout<<power<<endl;
+    return 0;
+}
+------------------------------------------------------------------------------------------
+Q.3=> PRINT COUNTING
+
+#include<iostream>
+using namespace std;
+void number(int n){
+    if(n==0){
+        return ;
+    }else{
+        number(n-1);
+        cout<<n<<endl;
+    }
+}
+int main(){
+    int n;
+    cout<<"Enter the number where you to print counting "<<endl;
+    cin>>n;
+    number(n);
+    cout<<endl;
+    return 0;
+}
+-------------------------------------------------------------------------------------------------
+Q.4=> SIMPLE EXAMPLE OF RECURSION :-
+ 
+
+#include <iostream>
+
+using namespace std;
+void returnhome(int source,int destination){
+    cout<<"source is "<<source<<" destination is "<<destination<<endl;;
+    //base case
+    if(source==destination){
+        return;
+    }
+    source++;
+    returnhome(source,destination);
+}
+
+int main()
+{
+    int destination=10;
+    int source=1;
+    cout<<endl;
+    returnhome(source,destination);
+    
+
+    return 0;
+}
+-------------------------------------------------------------------------------------------------------
+Q.FIBONACCI 
+
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n) {
+  if (n == 0) {
+    return 0;
+  }
+  if (n == 1) {
+    return 1;
+  }
+  return fibonacci(n - 1) + fibonacci(n - 2);
+  
+}
+
+int main() {
+  int n;
+  cout << "Enter the term of fibonacci: ";
+  cin >> n;
+  cout << endl;
+
+  int answer = fibonacci(n);
+  cout << answer<< endl;
+
+  return 0;
+}
+----------------------------------------------------------------------------------------------------------
+Q=> SAY DIGIT
+
+#include<iostream>
+using namespace std;
+void saydigit(int n,string arr[]){
+    if(n==0){
+        return ;
+    }
+    //processing
+    int digit=n%10;
+    n=n/10;
+    cout<<arr[digit]<<" ";
+    //R.R 
+    saydigit(n,arr);
+    
+}
+
+int main(){
+    string arr[10]={"zero","one","two","three","four","five","six","seven","eight","nine"};
+    int n;
+    cout<<"Enter the Number";
+    cin>>n;
+    cout<<endl<<endl<<endl;
+    saydigit(n,arr);
+    cout<<endl<<endl<<endl;
+ 
+    
+}
+--------------------------------------------------------------------------------------------------------
+Q. BINARY SEARCH TO CHECK ARRAY IS SORTED OR NOT
+
+
+#include <iostream>
+
+using namespace std;
+bool issorted(int arr[],int size){
+    if(size==0 || size==1){
+        return true;
+    }
+    if(arr[0]>arr[1]){
+        return false;
+    }else{
+        bool remainpart =issorted(arr + 1, size - 1);
+        return remainpart;
+    }
+}
+
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    int size =5;
+    bool ans = issorted(arr,size);
+    if(ans){
+        cout<<"Array is sorted"<<endl;
+    }else{
+        cout<<"Array is not sorted"<<endl;
+    }
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------
+Q.=> SUM OF ARRAY
+
+#include<iostream>
+using namespace std;
+int getsum(int *arr,int size){
+    if(size==0){
+        return 0;
+    }
+    if(size==1){
+        return arr[0];
+}
+    int remainpart = getsum(arr + 1,size - 1);
+    int sum = arr[0]+remainpart;
+    return sum;
+}    
+int main(){
+    int arr[5]={2,4,5,7,8};
+    int size =5;
+    int sum = getsum(arr,size);
+    cout<<"sum is : "<<sum<<endl;
+    
+}
+-----------------------------------------------------------------------------------------------------------------
+Q. LINEAR SEARCH TO FIND A KEY IN PARTICULAR ARRAY 
+
+#include<iostream>
+using namespace std;
+
+bool linearsearch(int arr[], int key, int size) {
+    if (size == 1) {
+        return arr[0] == key;
+    }
+
+    if (arr[0] == key) {
+        return true;
+    } else {
+        return linearsearch(arr + 1, key, size - 1);
+    }
+}
+
+int main() {
+    int arr[5] = {2, 3, 5, 9, 7};
+    int size = 5;
+    int key = 9;
+    bool ans = linearsearch(arr, key, size);
+    if (ans) {
+        cout << "Key is present." << endl;
+    } else {
+        cout << "Key is absent." << endl;
+    }
+    return 0;
+}
+--------------------------------------------------------------------------------------------------------------------------
+Q.=> BINARY SEARCH TO FIND A KEY IN PARTICULAR ARRAY 
+
+#include<iostream>
+using namespace std;
+
+bool binarysearch(int arr[], int s, int e, int key) {
+    if (s > e) {
+        return false; 
+    }
+
+    int mid = s + (e - s) / 2;
+
+    if (arr[mid] == key) {
+        return true;
+    }
+
+    if (arr[mid] < key) {
+        return binarysearch(arr, mid + 1, e, key);
+    }
+    else {
+        return binarysearch(arr, s, mid - 1, key);
+    }
+}
+
+int main() {
+    int arr[] = {3, 4, 5, 6, 7, 9}; 
+    int size = 6;
+    int key = 6;
+
+    bool result = binarysearch(arr, 0, size - 1, key);
+
+    if (result) {
+        cout << "Element found!" << endl;
+    } else {
+        cout << "Element not found." << endl;
+    }
+
+    return 0;
+}
+----------------------------------------------------------------------------------------------------
+

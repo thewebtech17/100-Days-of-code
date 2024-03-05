@@ -1,0 +1,437 @@
+//constant
+int add4(int a,int b);
+int main(){
+    add1();
+    printf("\n");
+    add2(2,3);
+    printf("\n");
+    printf("%d",add3());
+    printf("\n");
+    printf("%d",add4(40,50));
+    
+    
+}
+void add1(){
+    int a,b;
+    a=10;b=20;
+    printf("%d",a+b);
+}
+void add2(int a,int b){
+    printf("%d",a+b);
+}
+int add3(){
+    int a=10;
+    int b=20;
+    return a+b;
+}
+int add4(int a,int b){
+    return a+b;
+}
+//user input
+
+#include<stdio.h>
+void add1();
+void add2(int a, int b);
+int add3();
+int add4(int a,int b);
+int main(){
+    add1();
+    printf("\n");
+    int c,d;
+    scanf("%d%d",&c,&d);
+    add2(c,d);
+    printf("\n");
+    printf("%d",add3());
+    printf("\n");
+    int y,z;
+    scanf("%d%d",&y,&z);
+    printf("%d",add4(y,z));
+    
+    
+}
+void add1(){
+    int a,b;
+    scanf("%d%d",&a,&b);
+    printf("%d",a+b);
+}
+void add2(int a,int b){
+    printf("%d",a+b);
+}
+int add3(){
+    int r,q;
+    scanf("%d%d",&r,&q);
+    return r+q;
+}
+int add4(int a,int b){
+    return a+b;
+}
+====================================
+
+1)add function : a+b 
+
+#include <stdio.h>
+int add4(int a,int b);
+int main()
+{
+    int y,z;
+    scanf("%d%d",&y,&z);
+    printf("%d",add4(y,z));
+    
+}
+int add4(int a,int b){
+    return a+b;
+}
+=======================
+2)
+add() =>a+b 
+sub()=>a-b 
+div() =>a/b 
+multi =>a*b 
+mod =>a%b 
+
+#include <stdio.h>
+int add(int a,int b);
+int  sub(int a,int b);
+int multi(int a,int b);
+int  divi(int a,int b);
+int  mod(int a,int b);
+
+int main()
+{
+    int num,num1;
+    scanf("%d %d",&num,&num1);
+    
+       printf("%d",add(num,num1));
+       printf("\n");
+       printf("%d",sub(num,num1));
+       printf("\n");
+       printf("%d",multi(num,num1));
+       printf("\n");
+       printf("%d",divi(num,num1));
+       printf("\n");
+       printf("%d",mod(num,num1));
+    return 0;
+}
+int  add(int a,int b){
+    int c=a+b;
+    return c;
+}
+int sub(int a,int b){
+    int c=a-b;
+    return c;
+}
+int multi(int a,int b){
+    int c=a*b;
+    return c;
+    
+}
+int divi(int a,int b){
+    int c=a/b;
+    return c;
+    
+}
+int mod(int a,int b){
+    int c=a%b;
+   return c;
+    
+}
+=====================================
+voter() =>voter id 
+checkNumber() =>odd even 
+
+#include <stdio.h>
+char* voter(int age);
+char* checkNumber(int n);
+
+int main()
+{
+   int age;
+    scanf("%d\n",&age);
+  char* d=voter(age);
+   printf("%s",d);
+   printf("\n");
+    int n;
+    scanf("%d",&n);
+   char* f=checkNumber(n);
+   printf("%s",f);
+
+    return 0;
+}
+char* voter(int age){
+    
+    scanf("%d\n",&age);
+    if(age>18){
+        return "eligable for votiong";
+    }
+   return " not eligable for votiong";
+}
+char* checkNumber(int n){
+    
+    scanf("%d",&n);
+    if(n%2==0){
+        return "number is even";
+    }
+    return "number is odd";
+}
+=============================================
+
+allEven() =>1--100 EVEN NUMBER 
+random() =>34 89 mid even number 
+allOdd=>1-->odd number 
+ramdomOdd() =>34 89 mid 
+
+#include <stdio.h>
+int  alleven(int start,int end);
+int  randomeven(int start,int end);
+int  allodd(int start,int end);
+
+int  randomodd(int start,int end);
+
+int main()
+{
+    int start=1;
+    int end=100;
+     int a=alleven(start,end);
+     printf("\n");
+      
+    scanf("%d%d",&start,&end);
+     int b=randomeven(start,end);
+     printf("\n");
+     scanf("%d%d",&start,&end);
+     int c=allodd(start,end);
+     printf("\n");
+     scanf("%d%d",&start,&end);
+     int d=randomodd(start,end);
+
+    return 0;
+}
+int   alleven(int start,int end){
+    
+    for(int i=start;i<=end;i++){
+        if(i%2==0){
+            printf("%d\n",i);
+        }
+    }
+}
+int  randomeven(int start,int end){
+   
+    for(int i=start;i<=end;i++){
+        if(i%2==0){
+            printf("%d\n",i);
+        }
+    }
+    
+}
+int  allodd(int start,int end){
+    
+    for(int i=start;i<=end;i++){
+        if(i%2!=0){
+            printf("%d\n",i);
+        }
+    }
+}
+int  randomodd(int start,int end){
+    
+    for(int i=start;i<=end;i++){
+        if(i%2!=0){
+            printf("%d\n",i);
+        }
+    }
+    
+}
+=====================================================
+5) 
+factorial() =>factorial code 
+fibonacci() 
+armstrong number()
+pallindrome()
+reverseNumber()
+prime() 
+swap() 
+======================
+#include <stdio.h>
+int  factorial(int n); 
+int  fibonacci(int n,int a,int b); 
+char* armstrongnumber(int n);
+char* pallindrome(int n);
+int  reverseNumber(int a);
+char* prime(int b); 
+int  swap(int n,int a,int b); 
+
+int main()
+{
+     int d=factorial(5);
+     printf("\n");
+     int f=fibonacci(5,0,1);
+     printf("\n");
+     char* r=armstrongnumber(153);
+      printf("%s",r);
+     printf("\n");
+     char* p=pallindrome(121);
+     printf("%s",p);
+     printf("\n");
+     printf("%d",reverseNumber(1234));
+     printf("\n");
+     char* c=prime(7);
+     printf("%s",c);
+     printf("\n");
+     printf("%d"swap(7,8)); 
+     
+    
+
+    return 0;
+}
+int  factorial(int n){
+    
+    int f=1;
+    while(n>=1){
+        f=f*n;
+        n--;
+    }
+    printf("%d",f);
+    
+}
+int fibonacci(int n,int a,int b){
+    
+   
+   
+
+   for(i = 1; i <= n-2; i++) {
+      c = a + b;
+      printf("%d ", c);
+      
+      a = b;
+      b = c;
+   }
+    
+}
+char* armstrongnumber(int n){
+    
+    int n1=n;
+    int sum=0;
+    while(n>0){
+        int digit=n%10;
+        sum+=digit*digit*digit;
+        n/=10;
+    }
+    if(sum==n1){
+        return "number is armstrongnumber";
+    }
+     return "number is not armstrongnumber";
+    
+}
+char* pallindrome(int n){
+   
+    int n1=n;
+    int rev=0;
+    while(n>0){
+        int digit=n%10;
+        rev=rev*10+digit;
+        n/=10;
+    }
+    if(rev==n1){
+        return "number is pallindrome";
+        
+    }
+     return "not pallindrome";
+    
+    
+}
+int  reverseNumber(int a){
+    
+    int rev=0;
+    while(a>0){
+        int digit=a%10;
+        rev=rev*10+digit;
+        a/=10;
+    }
+    return rev;
+    
+}
+cahr* prime(int b){
+    
+    int count=0;
+    int i=2;
+    while(i<a){
+        if(a%i==0){
+            count++;
+        }
+        i++;
+    }
+    if(count==0){
+        return "number is prime";
+    }
+   return "not prime";
+    
+    
+    
+}
+int  swap(int n,int a,int b){
+    
+    if(n==1){
+        printf("first way of swap");
+        a=a-b;
+        b=a+b;
+        a=a-b;
+        return a,b;
+        
+    }
+    else if(n==2){
+        printf("second way of swap");
+        int temp=a;
+        a=b;
+        b=temp;
+        return a,b;
+        
+    }
+    else if(n==3){
+        printf("second way of swap");
+        a=a*b;
+        b=a/b;
+        a=a/b;
+         return a,b;
+        
+    }
+    
+} 
+======================================
+checkNumber() 
+user input : 7,2,5 
+7 =>number 7 se divisbile present or not 
+
+5+number 5 se divisiblee present or not 
+
+#include <stdio.h>
+ 
+void checkNumber(); 
+
+int main()
+{
+     
+     checkNumber(); 
+     
+    
+
+    return 0;
+}
+
+void checkNumber(){
+    int n;
+    scanf("%d",&n);
+    if(n%5==0){
+        printf("number is divisible by 5");
+       
+        
+    }
+    else if(n%2==0){
+        printf("number is divisible by 2");
+        
+        
+    }
+    else if(n%7==0){
+        printf("number is divisible by 7");
+       
+        
+    }
+    
+} 
